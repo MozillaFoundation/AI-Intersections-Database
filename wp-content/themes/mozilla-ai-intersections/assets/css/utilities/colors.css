@@ -1,0 +1,368 @@
+.has {
+    /* Blue */
+    &-blue {
+        &-5 {
+            &-text-color {
+                @apply text-blue-5;
+            }
+
+            &-background-color {
+                @apply bg-blue-5;
+            }
+        }
+
+        &-10 {
+            &-text-color {
+                @apply text-blue-10;
+            }
+
+            &-background-color {
+                @apply bg-blue-10;
+            }
+        }
+
+        &-20 {
+            &-text-color {
+                @apply text-blue-20;
+            }
+
+            &-background-color {
+                @apply bg-blue-20;
+            }
+        }
+
+        &-40 {
+            &-text-color {
+                @apply text-blue-40;
+            }
+
+            &-background-color {
+                @apply bg-blue-40;
+                @apply hover:bg-blue-80;
+                @apply active:text-black active:bg-blue-20;
+            }
+        }
+
+        &-60 {
+            &-text-color {
+                @apply text-blue-60;
+            }
+
+            &-background-color {
+                @apply bg-blue-60;
+            }
+        }
+
+        &-80 {
+            &-text-color {
+                @apply text-blue-80;
+            }
+
+            &-background-color {
+                @apply bg-blue-80;
+            }
+        }
+
+        &-100 {
+            &-text-color {
+                @apply text-blue-100;
+            }
+
+            &-background-color {
+                @apply bg-blue-100;
+            }
+        }
+    }
+
+    /* Green */
+    &-green {
+        &-5 {
+            &-text-color {
+                @apply text-green-5;
+            }
+
+            &-background-color {
+                @apply bg-green-5;
+            }
+        }
+
+        &-10 {
+            &-text-color {
+                @apply text-green-10;
+            }
+
+            &-background-color {
+                @apply bg-green-10;
+            }
+        }
+
+        &-20 {
+            &-text-color {
+                @apply text-green-20;
+            }
+
+            &-background-color {
+                @apply bg-green-20;
+            }
+        }
+
+        &-40 {
+            &-text-color {
+                @apply text-green-40;
+            }
+
+            &-background-color {
+                @apply bg-green-40;
+            }
+        }
+
+        &-60 {
+            &-text-color {
+                @apply text-green-60;
+            }
+
+            &-background-color {
+                @apply bg-green-60;
+            }
+        }
+
+        &-80 {
+            &-text-color {
+                @apply text-green-80;
+            }
+
+            &-background-color {
+                @apply bg-green-80;
+            }
+        }
+
+        &-100 {
+            &-text-color {
+                @apply text-green-100;
+            }
+
+            &-background-color {
+                @apply bg-green-100;
+            }
+        }
+    }
+
+    /* Purple */
+    &-purple {
+        &-5 {
+            &-text-color {
+                @apply text-purple-5;
+            }
+
+            &-background-color {
+                @apply bg-purple-5;
+            }
+        }
+
+        &-10 {
+            &-text-color {
+                @apply text-purple-10;
+            }
+
+            &-background-color {
+                @apply bg-purple-10;
+            }
+        }
+
+        &-20 {
+            &-text-color {
+                @apply text-purple-20;
+            }
+
+            &-background-color {
+                @apply bg-purple-20;
+            }
+        }
+
+        &-40 {
+            &-text-color {
+                @apply text-purple-40;
+            }
+
+            &-background-color {
+                @apply bg-purple-40;
+            }
+        }
+
+        &-60 {
+            &-text-color {
+                @apply text-purple-60;
+            }
+
+            &-background-color {
+                @apply bg-purple-60;
+            }
+        }
+
+        &-80 {
+            &-text-color {
+                @apply text-purple-80;
+            }
+
+            &-background-color {
+                @apply bg-purple-80;
+            }
+        }
+
+        &-100 {
+            &-text-color {
+                @apply text-purple-100;
+            }
+
+            &-background-color {
+                @apply bg-purple-100;
+            }
+        }
+    }
+
+    /* Cyan */
+    &-cyan {
+        &-5 {
+            &-text-color {
+                @apply text-cyan-5;
+            }
+
+            &-background-color {
+                @apply bg-cyan-5;
+            }
+        }
+
+        &-10 {
+            &-text-color {
+                @apply text-cyan-10;
+            }
+
+            &-background-color {
+                @apply bg-cyan-10;
+            }
+        }
+
+        &-20 {
+            &-text-color {
+                @apply text-cyan-20;
+            }
+
+            &-background-color {
+                @apply bg-cyan-20;
+            }
+        }
+
+        &-40 {
+            &-text-color {
+                @apply text-cyan-40;
+            }
+
+            &-background-color {
+                @apply bg-cyan-40;
+            }
+        }
+
+        &-60 {
+            &-text-color {
+                @apply text-cyan-60;
+            }
+
+            &-background-color {
+                @apply bg-cyan-60;
+            }
+        }
+
+        &-80 {
+            &-text-color {
+                @apply text-cyan-80;
+            }
+
+            &-background-color {
+                @apply bg-cyan-80;
+            }
+        }
+
+        &-100 {
+            &-text-color {
+                @apply text-cyan-100;
+            }
+
+            &-background-color {
+                @apply bg-cyan-100;
+            }
+        }
+    }
+
+    /* Grey */
+    &-grey {
+        &-5 {
+            &-text-color {
+                @apply text-grey-5;
+            }
+
+            &-background-color {
+                @apply bg-grey-5;
+            }
+        }
+
+        &-10 {
+            &-text-color {
+                @apply text-grey-10;
+            }
+
+            &-background-color {
+                @apply bg-grey-10;
+            }
+        }
+
+        &-20 {
+            &-text-color {
+                @apply text-grey-20;
+            }
+
+            &-background-color {
+                @apply bg-grey-20;
+            }
+        }
+
+        &-40 {
+            &-text-color {
+                @apply text-grey-40;
+            }
+
+            &-background-color {
+                @apply bg-grey-40;
+            }
+        }
+
+        &-60 {
+            &-text-color {
+                @apply text-grey-60;
+            }
+
+            &-background-color {
+                @apply bg-grey-60;
+            }
+        }
+
+        &-80 {
+            &-text-color {
+                @apply text-grey-80;
+            }
+
+            &-background-color {
+                @apply bg-grey-80;
+            }
+        }
+
+        &-100 {
+            &-text-color {
+                @apply text-grey-100;
+            }
+
+            &-background-color {
+                @apply bg-grey-100;
+            }
+        }
+    }
+}

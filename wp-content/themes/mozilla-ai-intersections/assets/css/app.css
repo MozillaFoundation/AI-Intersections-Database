@@ -1,0 +1,27 @@
+/* Tailwind core */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Utilities */
+@import "utilities/colors.css";
+@import "utilities/typography.css";
+@import "utilities/layout.css";
+
+/* Templates */
+@import "templates/header.css";
+@import "templates/footer.css";
+
+/* Pages */
+@import "pages/front.css";
+@import "pages/archive.css";
+@import "pages/page.css";
+@import "pages/single.css";
+@import "pages/404.css";
+
+/* Blocks */
+@import "blocks/default.css";
+@import "blocks/definition.css";
+@import "blocks/contribute-banner.css";
+@import "blocks/gravity-forms.css";
+@import "blocks/form-assembly.css";

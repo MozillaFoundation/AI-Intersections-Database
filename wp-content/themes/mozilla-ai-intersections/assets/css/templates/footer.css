@@ -1,0 +1,84 @@
+#colophon {
+    .h5 {
+        @apply mb-0;
+    }
+    
+    #foundation-link {
+        @apply bg-white transition-colors duration-200;
+        @apply hover:bg-blue-20;
+
+        mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/brand/mozilla-mask.svg);
+        mask-size: contain;
+        mask-position: center;
+        mask-repeat: no-repeat;
+
+        img {
+            @apply opacity-0;
+        }
+    }
+
+    .menu {
+        @apply flex items-center justify-between gap-7 mb-10;
+        @apply xl:gap-0;
+        @apply xs:flex-col;
+
+        .menu-item {
+            @apply text-white leading-[1.4] w-full max-w-[114px];
+            
+            &.menu-item-has-children {
+                & > a {
+                    @apply hidden;
+                }
+
+                .sub-menu {
+                    .menu-item {
+                        @apply mb-[8px];
+                        a {
+                            @apply text-white border-b border-transparent transition-colors duration-200;
+                            @apply hover:text-blue-20 hover:border-blue-20;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        @apply block min-h-[20px] min-w-[20px] bg-white transition-colors duration-200;
+        @apply hover:bg-blue-20;
+
+        mask-size: contain;
+        mask-position: center;
+        mask-repeat: no-repeat;
+
+        &.twitter {
+            @apply min-h-[22px] min-w-[22px] m-[-3px];
+
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/twitter.svg);
+        }
+
+        &.instagram {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/instagram.svg);
+        }
+
+        &.github {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/github.svg);
+        }
+
+        &.youtube {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/youtube.svg);
+        }
+
+        &.email {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/email.svg);
+        }
+    }
+
+    a {
+        &:not(#foundation-link) {
+            &:not(.social) {
+                @apply m-0;
+            }
+        }
+    }
+}

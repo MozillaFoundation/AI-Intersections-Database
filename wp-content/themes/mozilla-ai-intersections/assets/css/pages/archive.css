@@ -1,0 +1,411 @@
+.database-search {
+    #search-toggle {
+        &:checked {
+            & + label {
+                &::after {
+                    @apply transform rotate-45;
+                }
+
+                & + div {
+                    @apply flex;
+                }
+            }
+        }
+    }
+
+    label {
+        &[for="search-toggle"] {
+            @screen lg {
+                &::after {
+                    @apply block min-h-[20px] min-w-[20px] bg-white;
+
+                    content: "";
+                    mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/plus.svg);
+                    mask-size: contain;
+                    mask-position: center;
+                    mask-repeat: no-repeat;
+                }
+            }
+        }
+    }
+
+    &__container {
+        @apply relative w-[calc(100%-200px)];
+        @apply lg:w-full;
+        @apply before:content-[""];
+
+        &::before {
+            @apply absolute top-1/2 left-3 min-h-[24px] min-w-[24px] bg-black transform -translate-y-1/2 transition-colors duration-200;
+            @apply lg:top-[28px];
+
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/search.svg);
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+
+        &::after {
+            @apply absolute top-full left-0 text-grey-40 text-[12px] mt-1;
+            @apply lg:relative lg:top-[unset] lg:left-[unset] lg:order-2 lg:text-left lg:w-full lg:mt-0 lg:mb-2;
+
+            content: "Search by keyword, actor, or issue";
+        }
+
+        #search {
+            @apply flex items-center justify-start font-light text-black text-[20px] text-ellipsis h-[56px] w-full pl-12 pr-4 shadow-[0_0_4px_transparent] border border-white transition-all duration-200;
+            @apply lg:order-1 lg:text-[18px];
+            @apply sm:text-[16px];
+            @apply placeholder:text-grey-40;
+
+            &:focus-visible {
+                @apply outline-none;
+            }
+        }
+
+        #search-submit {
+            @apply flex items-center justify-center cursor-pointer font-semibold text-white h-[56px] px-4 bg-blue-40 transition-colors duration-200;
+            @apply lg:order-3 lg:w-full;
+            @apply hover:bg-blue-80;
+            @apply active:text-black active:bg-blue-20;
+        }
+
+        &:focus-within {
+            &::before {
+                @apply bg-blue-40;
+            }
+
+            #search {
+                @apply border-blue-40 shadow-[0_0_4px_#595CF3];
+            }
+        }
+    }
+}
+
+input {
+    &[id*="filter"] {
+        &:checked {
+            & + label {
+                &::after {
+                    @apply rotate-0;
+                }
+                
+                & + div {
+                    @apply flex;
+                }
+            }
+        }
+    }
+}
+
+label {
+    &[for*="filter"] {
+        &::after {
+            @apply absolute top-1/2 right-0 min-h-[14px] min-w-[14px] bg-contain bg-center bg-no-repeat transform -translate-y-1/2 rotate-180;
+
+            content: "";
+            background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/chevron.svg);
+        }
+    }
+}
+
+.filter-input {
+    input {
+        &[type="checkbox"] {
+            &:checked {
+                & + label {
+                    @apply font-semibold;
+                    
+                    &::before {
+                        @apply bg-blue-40 border-blue-40;
+
+                        background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/check.svg);
+                    }
+                }
+            }
+        }
+    }
+
+    label {
+        &::before {
+            @apply block min-h-[20px] min-w-[20px] mt-[-1px] bg-white bg-center bg-no-repeat border border-grey-60;
+
+            content: "";
+            background-size: 12px;
+        }
+    }
+}
+
+.share {
+    &::before {
+        @apply absolute top-0 left-0 h-full w-full bg-black transition-colors duration-200;
+
+        content: "";
+    }
+
+    &:hover {
+        &::before {
+            @apply bg-white;
+        }
+    }
+
+    &.link {
+        &::before {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/link.svg);
+            mask-size: 24px;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+
+        &.copied {
+            &::before {
+                mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/copied.svg);
+                mask-size: 18px;
+            }
+        }
+    }
+
+
+    &.linkedin {
+        &::before {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/linkedin.svg);
+            mask-size: 24px;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+    }
+
+    &.twitter {
+        &::before {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/twitter.svg);
+            mask-size: 24px;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+    }
+
+    &.facebook {
+        &::before {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/facebook.svg);
+            mask-size: 24px;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+    }
+
+    &.email {
+        &::before {
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/email-share.svg);
+            mask-size: 24px;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+    }
+}
+
+#records {
+    &.loading {
+        @apply opacity-50 pointer-events-none;
+    }
+}
+
+.filters {
+    &__inner {
+        @apply hidden flex-wrap items-center justify-start gap-1 mb-8;
+
+        &__filter {
+            @apply flex items-center justify-center gap-[8px] cursor-pointer font-semibold text-[14px] leading-none h-[26px] pt-[2px] px-[10px] border border-black rounded-full transition-colors duration-200;
+
+            &::after {
+                @apply block cursor-pointer min-h-[8px] min-w-[8px] mt-[-1px] bg-black transition-colors duration-200;
+
+                content: "";
+                mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/close.svg);
+                mask-size: contain;
+                mask-position: center;
+                mask-repeat: no-repeat;
+            }
+
+            &:hover {
+                @apply text-white bg-blue-100 border-blue-100;
+
+                &::after {
+                    @apply bg-white;
+                }
+            }
+
+            &:active {
+                @apply text-black bg-blue-20 border-blue-20;
+
+                &::after {
+                    @apply bg-black;
+                }
+            }
+        }
+    }
+}
+
+#sort-records-trigger {
+    &::after {
+        @apply block min-h-[16px] min-w-[16px] bg-black transform rotate-180;
+
+        content: "";
+        mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/chevron.svg);
+        mask-size: contain;
+        mask-position: center;
+        mask-repeat: no-repeat;
+    }
+}
+
+body {
+    &.page,
+    &.archive,
+    &.single {
+        .records {
+            &__record {
+                @apply relative bg-white border-black;
+
+                &::before,
+                &::after {
+                    @apply absolute z-[-1] top-0 left-0 transform;
+
+                    content: "";
+                }
+
+                &::before {
+                    @apply h-[calc(100%+3px)] w-[calc(100%+3px)] translate-x-[7px] translate-y-[7px];
+                }
+
+                &::after {
+                    @apply h-[calc(100%+20px)] w-[calc(100%+20px)] opacity-0 translate-x-[-10px] translate-y-[-10px] transition-opacity duration-200;
+                }
+
+                .type {
+                    @apply relative font-semibold w-fit;
+
+                    &::before,
+                    &::after {
+                        @apply block min-h-[32px] min-w-[32px] transition-colors duration-200;
+
+                        content: "";
+                    }
+
+                    &::before {
+                        @apply absolute top-0 left-0;
+                    }
+
+                    &::after {
+                        @apply order-[-1] rounded-full;
+                    }
+                }
+
+                &.actor {
+                    &::before,
+                    &::after {
+                        @apply bg-green-10;
+                    }
+
+                    .type {
+                        @apply text-cyan-100;
+
+                        &::before {
+                            @apply bg-cyan-100;
+
+                            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/actor.svg);
+                            mask-size: 16px;
+                            mask-position: center;
+                            mask-repeat: no-repeat;
+                        }
+
+                        &::after {
+                            @apply bg-green-10;
+                        }
+                    }
+                }
+
+                &.issue {
+                    &::before,
+                    &::after {
+                        @apply bg-purple-5;
+                    }
+
+                    .type {
+                        @apply text-purple-100;
+
+                        &::before {
+                            @apply bg-purple-100;
+
+                            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/issue.svg);
+                            mask-size: 16px;
+                            mask-position: center;
+                            mask-repeat: no-repeat;
+                        }
+                        
+                        &::after {
+                            @apply bg-purple-5;
+                        }
+                    }
+                }
+
+                .arrow {
+                    @apply relative bg-black;
+                    
+                    &::before {
+                        @apply absolute top-0 left-0 h-full w-full bg-white transition-colors duration-200;
+
+                        content: "";
+                        mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/arrow.svg);
+                        mask-size: 14px;
+                        mask-position: center;
+                        mask-repeat: no-repeat;
+                    }
+                }
+
+                h2 {
+                    @apply m-0;
+                }
+
+                &:hover {
+                    &::after {
+                        @apply opacity-100;
+                    }
+
+                    &.actor {
+                        @apply border-cyan-100;
+
+                        .type {
+                            &::after {
+                                @apply bg-green-40;
+                            }
+                        }
+
+                        .arrow {
+                            @apply bg-green-40;
+
+                            &::before {
+                                @apply bg-cyan-100;
+                            }
+                        }
+                    }
+
+                    &.issue {
+                        @apply border-purple-100;
+
+                        .type {
+                            &::after {
+                                @apply bg-purple-20;
+                            }
+                        }
+
+                        .arrow {
+                            @apply bg-purple-20;
+
+                            &::before {
+                                @apply bg-purple-100;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

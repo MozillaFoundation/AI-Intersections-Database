@@ -1,0 +1,27 @@
+{
+    "scripts": {
+        "watch:css-admin": "tailwindcss -i \"./assets/css/admin.css\" -o \"./dist/css/admin.css\" --postcss --watch",
+        "watch:css-app": "tailwindcss -i \"./assets/css/app.css\" -o \"./dist/css/app.css\" --postcss --watch",
+        "watch:js-app": "./node_modules/.bin/esbuild \"./assets/js/app.js\" --bundle --outfile=\"./dist/js/app.js\" --minify --watch",
+        "watch": "concurrently \"npm run watch:css-admin\" \"npm run watch:css-app\" \"npm run watch:js-app\""
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.14",
+        "concurrently": "^7.6.0",
+        "cross-fetch": "^3.1.5",
+        "cssnano": "^7.0.1",
+        "dotenv": "^16.0.3",
+        "esbuild": "^0.17.12",
+        "node-fetch": "^3.3.1",
+        "postcss": "^8.4.21",
+        "postcss-import": "^15.1.0",
+        "postcss-nested": "^6.0.1",
+        "postcss-nested-ancestors": "^3.0.0",
+        "tailwindcss": "^3.4.1",
+        "terser": "^5.31.0"
+    },
+    "dependencies": {
+        "cssnano": "^7.0.1",
+        "sync-fetch": "^0.4.2"
+    }
+}

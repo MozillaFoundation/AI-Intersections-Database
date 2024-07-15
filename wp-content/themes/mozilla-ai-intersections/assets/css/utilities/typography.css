@@ -1,0 +1,262 @@
+body.page,
+body.archive,
+body.single,
+body.wp-admin .editor-styles-wrapper {
+    @apply font-body font-light text-[20px] leading-[1.6];
+    @apply lg:text-[18px];
+    @apply sm:text-[16px];
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5 {
+        @apply font-header font-light leading-[1.1];
+    }
+
+    h1,
+    .h1 {
+        @apply text-[56px] font-normal;
+        @apply xl:text-[52px];
+        @apply lg:text-[48px] lg:font-light;
+        @apply md:text-[42px];
+        @apply sm:text-[36px];
+    }
+
+    h2,
+    .h2 {
+        @apply text-[40px] mb-2;
+        @apply lg:text-[36px];
+        @apply sm:text-[32px];
+    }
+
+    h3,
+    .h3 {
+        @apply text-[28px] leading-[1.2];
+        @apply lg:text-[26px];
+        @apply sm:text-[24px];
+    }
+
+    h4,
+    .h4 {
+        @apply text-[24px];
+        @apply lg:text-[22px];
+    }
+
+    h5,
+    .h5 {
+        @apply font-semibold text-[22px];
+        @apply lg:text-[20px];
+    }
+
+    h6,
+    .h6 {
+        @apply font-body text-[12px] uppercase;
+    }
+
+    p {
+        &.clear-all {
+            @apply cursor-pointer font-semibold text-black text-[14px] leading-[1.1] w-fit border-b border-black transition-colors duration-200;
+            @apply hover:text-blue-80 hover:border-transparent;
+
+            &.main {
+                @apply text-[16px];
+            }
+        }
+
+        a {
+            @apply border-b border-black transition-colors duration-200;
+            @apply hover:text-blue-80 hover:border-transparent;
+
+            &[target="_blank"] {
+                @apply mr-1;
+                @apply after:content-[""];
+
+                &::after {
+                    @apply inline-block min-h-[20px] min-w-[20px] -mr-1 mb-[-2px] ml-1 bg-black transition-colors duration-200;
+
+                    mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/new-tab.svg);
+                    mask-size: contain;
+                    mask-position: center;
+                    mask-repeat: no-repeat;
+                }
+            }
+
+            &:hover {
+                &[target="_blank"] {
+                    &::after {
+                        @apply bg-blue-80;
+                    }
+                }
+            }
+        }
+    }
+
+    a.button,
+    .wp-block-button .wp-block-button__link,
+    .wp-block-button.is-style-outline .wp-block-button__link {
+        @apply flex items-center justify-center cursor-pointer font-semibold w-fit px-[16px] py-[8px] transition-colors duration-200;
+
+        &.new-tab,
+        &[target="_blank"] {
+            @apply gap-2;
+
+            &::after {
+                @apply block min-h-[20px] min-w-[20px] mb-[4px] bg-white transition-colors duration-200;
+
+                content: "";
+                mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/new-tab.svg);
+                mask-size: contain;
+                mask-position: center;
+                mask-repeat: no-repeat;
+            }
+
+            &:active {
+                &::after {
+                    @apply bg-black;
+                }
+            }
+        }
+    }
+
+    .wp-block-button {
+        &.is-style-outline {
+            .wp-block-button__link {
+                @apply hover:text-white hover:bg-black hover:border-black;
+                @apply active:text-white active:bg-blue-40 active:border-blue-40;
+
+                &[target="_blank"] {
+                    &::after {
+                        @apply bg-black;
+                    }
+
+                    &:hover {
+                        &::after {
+                            @apply bg-white;
+                        }
+                    }
+
+                    &:active {
+                        &::after {
+                            @apply bg-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        &.button {
+            @apply text-white text-[18px] bg-blue-40;
+            @apply hover:bg-blue-80;
+            @apply active:text-black active:bg-blue-20;
+
+            &.secondary {
+                @apply leading-none h-[40px] py-0 bg-transparent border-2 border-white;
+                
+                &:hover {
+                    @apply text-blue-40 bg-white;
+
+                    &::after {
+                        @apply bg-blue-40;
+                    }
+                }
+
+                &:active {
+                    @apply text-black bg-blue-20 border-blue-20;
+
+                    &::after {
+                        @apply bg-black;
+                    }
+                }
+            }
+        }
+
+        &.arrow {
+            @apply relative block font-medium text-blue-80 text-[16px] leading-[1.1] w-fit ml-6 border-b border-transparent transition-colors duration-200;
+            @apply before:content-[""];
+            @apply hover:border-blue-80;
+
+            &::before {
+                @apply absolute block top-1/2 -left-6 h-[12px] w-[18px] bg-blue-80 transform -translate-y-1/2;
+
+                mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/back.svg);
+                mask-size: contain;
+                mask-position: center;
+                mask-repeat: no-repeat;
+            }
+
+            &.forward {
+                @apply ml-0 mr-6;
+
+                &::before {
+                    @apply left-[unset] -right-6 rotate-[180deg];
+                }
+            }
+        }
+
+        &.wp-block-button__link {
+            @apply mt-8;
+        }
+    }
+
+    .main-wrapper {
+        &__content {
+            h1,
+            .h1,
+            h2,
+            .h2,
+            h3,
+            .h3,
+            h4,
+            .h4,
+            h5,
+            .h5 {
+                @apply mb-5;
+            }
+
+            h2,
+            .h2 {
+                @apply -mt-4;
+            }
+
+            p {
+                @apply my-6;
+
+                &:first-of-type {
+                    @apply mt-0;
+                }
+
+                &:last-of-type {
+                    @apply mb-0;
+                }
+            }
+            
+            ol,
+            ul {
+                @apply pl-7;
+            }
+            
+            ul {
+                @apply list-disc;
+            }
+        }
+    }
+
+    #colophon {
+        a {
+            @apply text-blue-20 border-b border-transparent transition-colors duration-200;
+            @apply hover:border-blue-20;
+
+            &::after {
+                @apply hidden;
+            }
+        }
+    }
+}

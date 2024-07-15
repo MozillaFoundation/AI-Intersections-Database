@@ -1,0 +1,213 @@
+.contribute-banner,
+.generic-opt-out,
+#colophon {
+    .wFormContainer {
+        @apply relative z-10 w-full;
+
+        .wForm {
+            @apply mt-0 bg-transparent border-none;
+
+            .wFormTitle {
+                @apply font-header text-black text-[40px] bg-transparent border-none;
+                @apply lg:text-[36px];
+                @apply sm:text-[32px];
+                @apply p-0 !important;
+            }
+
+            form {
+                @apply p-0;
+
+                .htmlSection {
+                    @apply p-0 mt-3 mb-4 border-none;
+
+                    .htmlContent {
+                        p {
+                            @apply font-body text-black text-[18px];
+                        }
+                    }
+                }
+
+                .oneField {
+                    @apply p-0 m-0 border-none;
+
+                    &.errFld {
+                        .errMsg {
+                            @apply mt-1;
+
+                            span {
+                                @apply block font-body text-blue-40 text-[12px];
+                            }
+                        }
+                    }
+
+                    .label {
+                        @apply font-body text-black text-[14px] pb-0;
+
+                        a {
+                            @apply text-blue-40 border-b border-transparent transition-colors duration-200;
+                            @apply hover:no-underline hover:border-blue-40;
+                        }
+                    }
+
+                    .inputWrapper {
+                        @apply w-full mt-0;
+
+                        input[type="text"],
+                        input[type="email"],
+                        select,
+                        textarea {
+                            @apply font-light w-full appearance-none border;
+                            @apply font-body text-[18px] h-[42px] border-grey-40 rounded-none !important;
+                            @apply focus:shadow-[0px_0px_4px_0px_#595CF3];
+                            
+                            &:focus {
+                                border: 1px solid #595CF3 !important;
+                            }
+
+                            &::placeholder {
+                                @apply text-grey-60;
+                            }
+                        }
+
+                        input {
+                            &[type="checkbox"] {
+                                @apply absolute left-[-9999px] opacity-0 appearance-none invisible pointer-events-none;
+
+                                & + label {
+                                    @apply relative cursor-pointer leading-[1.4] pl-6 mt-2 m-0;
+                                    @apply before:content-[""];
+
+                                    &::before {
+                                        @apply absolute top-0 left-0 max-h-[16px] min-h-[16px] max-w-[16px] min-w-[16px] mt-[1px] bg-white bg-center bg-no-repeat border-2 border-grey-40;
+
+                                        background-size: 10px;
+                                    }
+                                }
+
+                                &:checked {
+                                    & + label {
+                                        &::before {
+                                            @apply bg-blue-40 border-blue-40;
+
+                                            background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/check.svg);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        textarea {
+                            @apply resize-none;
+                            @apply h-[100px] !important;
+                        }
+                    }
+                }
+
+                .actions {
+                    @apply p-0 mt-4 m-0 border-none;
+
+                    #google-captcha {
+                        .captcha {
+                            .captchaHelp {
+                                @apply font-body font-normal text-black text-[12px] p-0 mt-2 m-0 opacity-100;
+                            }
+                        }
+                    }
+
+                    .primaryAction {
+                        @apply flex items-center justify-center cursor-pointer font-body font-semibold text-black text-[18px] leading-none whitespace-nowrap h-[42px] w-fit min-w-0 px-[16px] mt-1 bg-white shadow-none rounded-none transition-colors duration-200;
+                        @apply hover:text-white hover:bg-blue-40 hover:border-blue-40;
+                        @apply active:text-black active:bg-blue-20 active:border-blue-20;
+                        @apply disabled:text-white disabled:pointer-events-none disabled:bg-[#C5C5C5] disabled:border-[#C5C5C5];
+
+                        border: 2px solid #000000;
+                    }
+                }
+            }
+        }
+
+        .wFormFooter,
+        .supportInfo {
+            @apply hidden;
+        }
+    }
+}
+
+.generic-opt-out {
+    @apply max-w-[546px];
+    @apply lg:max-w-none;
+}
+
+#colophon {
+    .wFormContainer {
+        @apply mt-0;
+
+        .wForm {
+            form {
+                .oneField {
+                    &.hide {
+                        @apply hidden;
+                    }
+
+                    .label {
+                        @apply text-white;
+
+                        &.reqMark {
+                            @apply hidden;
+                        }
+
+                        a {
+                            @apply text-blue-20;
+                            @apply hover:border-blue-20;
+                        }
+                    }
+                    
+                    .inputWrapper {
+                        @apply w-full mt-0;
+
+                        .oneChoice {
+                            @apply m-0;
+                        }
+
+                        input[type="text"],
+                        input[type="email"],
+                        select {
+                            @apply border-white !important;
+                        }
+
+                        input {
+                            &[type="checkbox"] {
+                                & + label {
+                                    @apply mt-0;
+
+                                    &::before {
+                                        @apply border-white;
+                                    }
+                                }
+                            }
+                        }
+
+                        select {
+                            @apply text-white bg-black bg-no-repeat;
+
+                            background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/select.svg);
+                            background-size: 24px;
+                            background-position: right 12px center;
+                        }
+                    }
+                }
+
+                .actions {
+                    @apply mt-0;
+
+                    .primaryAction,
+                    .primaryAction:disabled {
+                        @apply text-white h-[42px] m-0 pointer-events-auto bg-blue-40 border-none;
+                        @apply hover:bg-blue-80;
+                        @apply active:text-black active:bg-blue-20 active:border-blue-20;
+                    }
+                }
+            }
+        }
+    }
+}

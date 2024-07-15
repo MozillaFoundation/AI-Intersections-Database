@@ -1,0 +1,80 @@
+.single-ai_intersections {
+    #masthead {
+        nav {
+            .menu {
+                @apply flex items-center justify-between gap-6;
+    
+                .menu-item {
+                    a {
+                        &[href*="ai-intersections-database"] {
+                            @apply border-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#masthead {
+    &.menu-open {
+        @apply fixed top-0 left-0;
+
+        #mobile-trigger {
+            background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/menu-close.svg);
+        }
+
+        #menu {
+            @apply flex;
+        }
+    }
+
+    #mobile-trigger {
+        @apply min-h-[32px] min-w-[32px] mr-4 bg-contain bg-center bg-no-repeat;
+
+        background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/menu-open.svg);
+    }
+
+    .container {
+        @apply lg:max-w-none;
+    }
+
+    #menu {
+        nav {
+            @apply lg:w-full;
+
+            .menu {
+                @apply flex items-center justify-between gap-6;
+                @apply xl:gap-5;
+                @apply lg:flex-col lg:gap-0 lg:border-t lg:border-grey-20;
+
+                .menu-item {
+                    @apply lg:w-full lg:border-b lg:border-grey-20;
+
+                    a {
+                        @apply font-semibold text-[16px] pb-1 border-b-[5px] border-transparent transition-colors duration-200;
+                        @apply lg:block lg:text-[20px] lg:text-center lg:w-full lg:py-[24px] lg:border-none;
+                        @apply hover:border-black;
+                    }
+
+                    &.current-menu-item {
+                        a {
+                            @apply border-black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .button {
+            @apply xl:text-[16px] xl:px-[14px];
+            @apply lg:text-[18px] lg:mt-[32px];
+            @apply xs:w-[calc(100%-2rem)];
+
+            &::after {
+                @apply xl:min-h-[18px] xl:min-w-[18px];
+                @apply lg:min-h-[20px] lg:min-w-[20px];
+            }
+        }
+    }
+}

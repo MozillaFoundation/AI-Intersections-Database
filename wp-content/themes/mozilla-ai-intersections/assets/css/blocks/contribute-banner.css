@@ -1,0 +1,242 @@
+body.page,
+body.archive,
+body.single {
+    .contribute-banner {
+        @apply relative z-10 py-20 mb-[-1px] bg-right-bottom bg-no-repeat;
+        @apply xl:py-16;
+        @apply lg:pt-12 lg:pb-0;
+
+        background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-bg.webp);
+        background-size: 820px;
+
+        &.wp-block-columns {
+            @apply relative bg-none py-28;
+            @apply 2xl:py-20;
+            @apply xl:py-16;
+            @apply before:content-[""];
+
+            &::before {
+                @apply absolute top-[unset] bottom-0 left-1/2 h-[calc(100%+10rem)] w-screen bg-no-repeat transform -translate-x-1/2;
+                @apply lg:relative lg:order-2 lg:h-[480px] lg:-mt-20;
+                @apply sm:h-auto sm:aspect-[1.35/1] sm:-mt-12;
+
+                background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-left-bg.webp), linear-gradient(to bottom, transparent, #E7E7FB);
+                background-size: auto 100%, cover;
+                background-position: bottom left, center;
+
+                @media (max-width: 1750px) {
+                    background-size: 49vw, cover;
+                }
+
+                @media (max-width: 1400px) {
+                    background-size: 48vw, cover;
+                }
+
+                @media (max-width: 1199px) {
+                    background-size: calc(100vw - 540px), cover;
+                }
+
+                @media (max-width: 1024px) {
+                    background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-left.webp), url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-left-bg.webp), linear-gradient(to bottom, transparent, #E7E7FB);
+                    background-size: 600px, 580px, cover;
+                    background-position: bottom left, bottom left, center;
+                }
+
+                @media (max-width: 640px) {
+                    background-size: 93vw, 90vw, cover;
+                }
+            }
+
+            &::after {
+                @apply lg:hidden;
+            }
+
+            .wp-block-column {
+                position: unset;
+
+                &:first-of-type {
+                    @apply lg:hidden;
+
+                    flex-basis: calc(100% - 680px);
+
+                    @media (max-width: 1199px) {
+                        flex-basis: calc(100% - 600px);
+                    }
+                }
+
+                &:last-of-type {
+                    flex-basis: 680px;
+
+                    @media (max-width: 1199px) {
+                        flex-basis: 600px;
+                    }
+
+                    @media (max-width: 1024px) {
+                        flex-basis: unset;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1650px) {
+            background-size: 690px;
+        }
+
+        @media (max-width: 1400px) {
+            background-size: 580px;
+        }
+
+        @media (max-width: 1200px) {
+            background-size: 470px;
+        }
+
+        .wp-block-column {
+            @apply relative z-20;
+        }
+    }
+
+    .contribute-content {
+        @apply py-[40px];
+        @apply lg:py-[36px];
+        @apply sm:py-[32px];
+
+        &.wp-block-group {
+            &::after {
+                @apply top-0 left-1/2 h-full bg-left-bottom;
+    
+                background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-left.webp);
+                background-size: 860px;
+
+                @media (max-width: 1750px) {
+                    background-size: 49vw;
+                }
+
+                @media (max-width: 1400px) {
+                    background-size: 48vw;
+                }
+
+                @media (max-width: 1199px) {
+                    background-size: calc(100vw - 540px);
+                }
+            }
+        }
+
+        &::after {
+            background-size: 860px;
+
+            @media (max-width: 1650px) {
+                background-size: 730px;
+            }
+
+            @media (max-width: 1400px) {
+                background-size: 620px;
+            }
+
+            @media (max-width: 1200px) {
+                background-size: 510px;
+            }
+        }
+
+        h2 {
+            @apply mb-4;
+        }
+    }
+
+    &.home {
+        .contribute-banner {
+            background-size: 1000px;
+
+            @media (max-width: 2000px) {
+                background-size: 950px;
+            }
+
+            @media (max-width: 1500px) {
+                background-size: 840px;
+            }
+
+            @media (max-width: 1400px) {
+                background-size: 730px;
+            }
+
+            @media (max-width: 1200px) {
+                background-size: 620px;
+            }
+
+            @media (max-width: 1024px) {
+                background-size: 580px;
+            }
+
+            @media (max-width: 600px) {
+                background-size: 96%;
+            }
+
+            .contribute-content {
+                &::after {
+                    background-size: 1080px;
+
+                    @media (max-width: 2000px) {
+                        background-size: 970px;
+                    }
+
+                    @media (max-width: 1500px) {
+                        background-size: 860px;
+                    }
+
+                    @media (max-width: 1400px) {
+                        background-size: 750px;
+                    }
+
+                    @media (max-width: 1200px) {
+                        background-size: 640px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contribute-banner {
+    @apply after:content-[""];
+
+    &::after {
+        @apply hidden;
+        @apply lg:block h-auto w-full max-w-[600px] aspect-[1440/742] mt-4 ml-auto bg-contain bg-right bg-no-repeat;
+
+        background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-right.webp);
+    }
+
+    .wp-block-column {
+        @apply relative z-10;
+    }
+
+    h2,
+    h3,
+    p,
+    a {
+        @apply relative z-10;
+    }
+
+    h2,
+    h3 {
+        @apply text-[32px];
+    }
+
+    p {
+        @apply mt-3;
+    }
+}
+
+.contribute-content {
+    @apply h-fit px-[40px] py-3 bg-white shadow-[0px_4px_86.4px_0px_rgba(0,0,0,0.05),0px_4px_3px_0px_rgba(0,0,0,0.14)] rounded-[14px];
+    @apply lg:px-[36px];
+    @apply sm:px-[32px];
+    @apply after:content-[""];
+
+    &::after {
+        @apply absolute top-1 left-1/2 h-[calc(100%+5rem)] w-screen bg-right-bottom bg-no-repeat transform -translate-x-1/2;
+        @apply xl:h-[calc(100%+4rem)];
+        @apply lg:hidden;
+
+        background-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/artwork/contribute-banner-right.webp);
+    }
+}

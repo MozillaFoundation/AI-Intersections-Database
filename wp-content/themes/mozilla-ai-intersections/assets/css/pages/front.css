@@ -1,0 +1,51 @@
+#browse-justice-area {
+    #justice-area-toggle {
+        &:checked {
+            & + label {
+                &::after {
+                    @apply transform rotate-45;
+                }
+                
+                & + div {
+                    @apply flex;
+                }
+            }
+        }
+    }
+
+    label {
+        &[for="justice-area-toggle"] {
+            @screen lg {
+                &::after {
+                    @apply block min-h-[20px] min-w-[20px] bg-white;
+
+                    content: "";
+                    mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/plus.svg);
+                    mask-size: contain;
+                    mask-position: center;
+                    mask-repeat: no-repeat;
+                }
+            }
+        }
+    }
+
+    a {
+        &::after {
+            @apply absolute top-0 left-0 h-full w-full bg-black border-2 border-black rounded-full transform translate-x-[2px] translate-y-[2px] transition-transform duration-200;
+
+            content: "";
+        }
+
+        &:hover {
+            &::after {
+                @apply translate-x-0 translate-y-0;
+            }
+        }
+
+        &:active {
+            span {
+                @apply text-blue-100 border-blue-100;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+#definitions-toggle {
+    @apply cursor-pointer border-b border-black transition-colors duration-200;
+    @apply hover:text-blue-80 hover:border-transparent;
+}
+
+.definition {
+    @apply mt-12 border-b border-grey-20 pb-2;
+
+    &.lines-2 {
+        label {
+            @apply h-[55px];
+        }
+    }
+
+    input {
+        &:checked {
+            & + label {
+                &::after {
+                    @apply rotate-45;
+                }
+
+                & + p {
+                    @apply block;
+                }
+            }
+        }
+    }
+
+    label {
+        @apply h-[30px];
+        @apply after:content-[""];
+
+        &::after {
+            @apply block min-h-[16px] min-w-[16px] bg-blue-40 transform;
+
+            mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/plus.svg);
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+        }
+    }
+
+    p {
+        @apply pt-4 mt-0;
+    }
+}

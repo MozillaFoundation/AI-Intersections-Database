@@ -1,0 +1,25 @@
+html,
+body {
+    @apply w-screen overflow-x-hidden;
+}
+
+.container {
+    @apply max-w-[calc(1140px+2rem)] px-4 mx-auto;
+    @apply lg:max-w-[calc(740px+2rem)];
+}
+
+.main-wrapper {
+    &__content {
+        .wp-block-group {
+            & + .wp-block-columns {
+                @apply mt-0;
+            }
+        }
+
+        .wp-block-columns {
+            @apply my-20;
+            @apply lg:flex-col lg:my-16;
+            @apply sm:my-12;
+        }
+    }
+}

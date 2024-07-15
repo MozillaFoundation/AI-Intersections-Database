@@ -1,0 +1,135 @@
+body {
+    &.single {
+        .actor-issue {
+            &__hero {
+                @apply flex items-end justify-start h-auto w-full pt-44 pb-12 bg-green-5;
+                @apply lg:pt-28 lg:pb-0;
+
+                h1 {
+                    a {
+                        @apply text-blue-60 border-b-2 border-blue-60;
+
+                        &:hover {
+                            @apply border-transparent;
+                        }
+
+                        &::after {
+                            @apply min-h-[26px] min-w-[26px] ml-2 bg-blue-60;
+                        }
+                    }
+                }
+
+                &__meta {
+                    &::before {
+                        @apply lg:absolute lg:top-12 lg:left-1/2 lg:h-[calc(100%-3rem)] lg:w-screen lg:bg-white lg:transform lg:-translate-x-1/2;
+                    }
+
+                    .type {
+                        @apply relative font-semibold w-fit;
+
+                        &::before,
+                        &::after {
+                            @apply block min-h-[32px] min-w-[32px] transition-colors duration-200;
+
+                            content: "";
+                        }
+
+                        &::before {
+                            @apply absolute top-0 left-0;
+                        }
+
+                        &::after {
+                            @apply order-[-1] rounded-full;
+                        }
+                    }
+
+                    span,
+                    div {
+                        @apply relative z-10;
+                    }
+                }
+
+                &.actor {
+                    .actor-issue {
+                        &__hero {
+                            &__meta {
+                                .type {
+                                    @apply text-cyan-100;
+
+                                    &::before {
+                                        @apply bg-cyan-100;
+
+                                        mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/actor.svg);
+                                        mask-size: 16px;
+                                        mask-position: center;
+                                        mask-repeat: no-repeat;
+                                    }
+
+                                    &::after {
+                                        @apply bg-green-10;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.issue {
+                    @apply bg-purple-5;
+
+                    .actor-issue {
+                        &__hero {
+                            &__meta {
+                                .type {
+                                    @apply text-purple-100;
+
+                                    &::before {
+                                        @apply bg-purple-100;
+
+                                        mask-image: url(/wp-content/themes/mozilla-ai-intersections/assets/img/icons/issue.svg);
+                                        mask-size: 16px;
+                                        mask-position: center;
+                                        mask-repeat: no-repeat;
+                                    }
+                                    
+                                    &::after {
+                                        @apply bg-purple-5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__contact {
+                &::before {
+                    @apply absolute z-[-1] top-0 left-0 h-[calc(100%+3px)] w-[calc(100%+3px)] bg-black transform translate-x-[7px] translate-y-[7px];
+
+                    content: "";
+                }
+            }
+
+            &__links {
+                p {
+                    a {
+                        @apply float-right clear-both w-fit leading-[1.4];
+                        @apply md:float-left;
+
+                        &:first-of-type {
+                            @apply mb-2;
+                        }
+
+                        &::after {
+                            @apply min-h-[16px] min-w-[16px];
+                        }
+                    }
+                }
+            }
+
+            u {
+                @apply no-underline;
+            }
+        }
+    }
+}
