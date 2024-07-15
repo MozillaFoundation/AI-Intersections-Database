@@ -1,0 +1,28 @@
+name: Deploy DEV
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set Up Environment Variables
+      run: |
+          echo "AUTH_URL=${{ secrets.AUTH_URL }}" >> $GITHUB_ENV
+          echo "SYNC_URL=${{ secrets.SYNC_URL }}" >> $GITHUB_ENV
+          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> $GITHUB_ENV
+          echo "CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
+          echo "SECURITY_TOKEN=${{ secrets.SECURITY_TOKEN }}" >> $GITHUB_ENV
+    
+    - name: GitHub Action Deploy to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
+        WPE_ENV: aiidbdev
