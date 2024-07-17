@@ -15,7 +15,7 @@ jobs:
       run: |
         cat > wp-content/plugins/mozilla-salesforce-sync/_config.php << EOF
         <?php
-        define('AUTH_KEY', "${{ secrets.AUTH_KEY }}");
+        define('AUTH_URL', "${{ secrets.AUTH_URL }}");
         define('SYNC_URL', "${{ secrets.SYNC_URL }}");
         define('CLIENT_ID', "${{ secrets.CLIENT_ID }}");
         define('CLIENT_SECRET', "${{ secrets.CLIENT_SECRET }}");
