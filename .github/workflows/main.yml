@@ -13,17 +13,17 @@ jobs:
 
     - name: Set Up Environment Variables
       run: |
-        cat << 'EOF' > setenv.sh
-        #!/bin/bash
-        export AUTH_URL="${{ secrets.AUTH_URL }}"
-        export SYNC_URL="${{ secrets.SYNC_URL }}"
-        export CLIENT_ID="${{ secrets.CLIENT_ID }}"
-        export CLIENT_SECRET="${{ secrets.CLIENT_SECRET }}"
-        export USERNAME="${{ secrets.USERNAME }}"
-        export PASSWORD="${{ secrets.PASSWORD }}"
-        export SECURITY_TOKEN="${{ secrets.SECURITY_TOKEN }}"
+        cat > wp-content/plugins/mozilla-salesforce-sync/_config.php << EOF
+        <?php
+        define('AUTH_KEY', "${{ secrets.AUTH_KEY }}");
+        define('SYNC_URL', "${{ secrets.SYNC_URL }}");
+        define('CLIENT_ID', "${{ secrets.CLIENT_ID }}");
+        define('CLIENT_SECRET', "${{ secrets.CLIENT_SECRET }}");
+        define('USERNAME', "${{ secrets.USERNAME }}");
+        define('PASSWORD', "${{ secrets.PASSWORD }}");
+        define('SECURITY_TOKEN', "${{ secrets.SECURITY_TOKEN }}");
         EOF
-        chmod +x setenv.sh
+        cat wp-content/plugins/mozilla-salesforce-sync/_config.php
     
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v3
