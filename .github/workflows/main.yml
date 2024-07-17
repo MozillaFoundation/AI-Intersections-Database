@@ -13,16 +13,21 @@ jobs:
 
     - name: Set Up Environment Variables
       run: |
-          echo "AUTH_URL=${{ secrets.AUTH_URL }}" >> $GITHUB_ENV
-          echo "SYNC_URL=${{ secrets.SYNC_URL }}" >> $GITHUB_ENV
-          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> $GITHUB_ENV
-          echo "CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}" >> $GITHUB_ENV
-          echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
-          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
-          echo "SECURITY_TOKEN=${{ secrets.SECURITY_TOKEN }}" >> $GITHUB_ENV
+        cat << 'EOF' > setenv.sh
+        #!/bin/bash
+        export AUTH_URL="${{ secrets.AUTH_URL }}"
+        export SYNC_URL="${{ secrets.SYNC_URL }}"
+        export CLIENT_ID="${{ secrets.CLIENT_ID }}"
+        export CLIENT_SECRET="${{ secrets.CLIENT_SECRET }}"
+        export USERNAME="${{ secrets.USERNAME }}"
+        export PASSWORD="${{ secrets.PASSWORD }}"
+        export SECURITY_TOKEN="${{ secrets.SECURITY_TOKEN }}"
+        EOF
+        chmod +x setenv.sh
     
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v3
       with:
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
         WPE_ENV: aiidb
+        SCRIPT: setenv.sh
