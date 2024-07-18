@@ -13,13 +13,17 @@ jobs:
 
     - name: Set Up Environment Variables
       run: |
-          echo "AUTH_URL=${{ secrets.AUTH_URL }}" >> $GITHUB_ENV
-          echo "SYNC_URL=${{ secrets.SYNC_URL }}" >> $GITHUB_ENV
-          echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> $GITHUB_ENV
-          echo "CLIENT_SECRET=${{ secrets.CLIENT_SECRET }}" >> $GITHUB_ENV
-          echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
-          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
-          echo "SECURITY_TOKEN=${{ secrets.SECURITY_TOKEN }}" >> $GITHUB_ENV
+        cat > wp-content/plugins/mozilla-salesforce-sync/_config.php << EOF
+        <?php
+        define('AUTH_URL', "${{ secrets.AUTH_URL }}");
+        define('SYNC_URL', "${{ secrets.SYNC_URL }}");
+        define('CLIENT_ID', "${{ secrets.CLIENT_ID }}");
+        define('CLIENT_SECRET', "${{ secrets.CLIENT_SECRET }}");
+        define('USERNAME', "${{ secrets.USERNAME }}");
+        define('PASSWORD', "${{ secrets.PASSWORD }}");
+        define('SECURITY_TOKEN', "${{ secrets.SECURITY_TOKEN }}");
+        EOF
+        cat wp-content/plugins/mozilla-salesforce-sync/_config.php
     
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v3
