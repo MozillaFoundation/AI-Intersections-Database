@@ -434,11 +434,11 @@
     
                             $records = new WP_Query( $args );
                             $records_count;
-                            $records_current = ( $_GET['records'] ) ? $_GET['records'] : 8;
+                            $records_current = ( $_GET['records'] ) ? intval($_GET['records']) : 8;
                             $records_total = $records->found_posts;
 
                             if ( isset( $_GET['records'] ) ):
-                                $records_count = ( $_GET['records'] > $records_total ) ? $records_total : $_GET['records'];
+                                $records_count = ( intval($_GET['records']) > $records_total ) ? $records_total : intval($_GET['records']);
                             else:
                                 $records_count = ( $records_total < 8 ) ? $records_total : 8;
                             endif;
