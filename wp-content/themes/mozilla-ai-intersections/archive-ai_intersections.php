@@ -21,7 +21,7 @@
                         <label for="search-toggle" class="font-header font-medium text-white text-[22px] leading-[1.3] whitespace-nowrap mr-4 lg:flex lg:items-center lg:justify-between lg:gap-6 lg:w-full lg:mr-0 sm:text-[20px]">Search the database<span class="lg:hidden">:</span></label>
 
                         <div class="database-search__container flex items-center justify-between gap-4 lg:hidden lg:flex-col lg:gap-0">
-                            <input id="search" type="text" name="s" placeholder="Find a social justice issue, AI impact, movement actor, or location"<?php if ( isset( $_GET['search'] ) ) echo ' value="' . $_GET['search'] . '"'; ?>>
+                            <input id="search" type="text" name="s" placeholder="Find a social justice issue, AI impact, movement actor, or location"<?php if ( isset( $_GET['search'] ) ) echo ' value="' . sanitize_text_field($_GET['search']) . '"'; ?>>
                             <input type="hidden" name="post_type" value="ai_intersections">
                             <input id="search-submit" type="submit" value="Search">
                         </div>
@@ -402,7 +402,7 @@
     
                             $args = array(
                                 'post_type' => 'ai_intersections',
-                                'posts_per_page' => isset( $_GET['records'] ) ? $_GET['records'] : 8,
+                                'posts_per_page' => isset( $_GET['records'] ) ? intval($_GET['records']) : 8,
                                 'orderby' => 'date',
                                 'order' => 'DESC',
                                 'tax_query' => $tax_query,
@@ -410,7 +410,8 @@
                             );
     
                             if ( isset( $_GET['sort'] ) ):
-                                switch ( $_GET['sort'] ):
+                                $sort = sanitize_text_field($_GET['sort']);
+                                switch ( $sort ):
                                     case 'recent':
                                         $args['orderby'] = 'date';
                                         $args['order'] = 'DESC';
@@ -433,11 +434,11 @@
     
                             $records = new WP_Query( $args );
                             $records_count;
-                            $records_current = ( $_GET['records'] ) ? $_GET['records'] : 8;
+                            $records_current = ( $_GET['records'] ) ? intval($_GET['records']) : 8;
                             $records_total = $records->found_posts;
 
                             if ( isset( $_GET['records'] ) ):
-                                $records_count = ( $_GET['records'] > $records_total ) ? $records_total : $_GET['records'];
+                                $records_count = ( intval($_GET['records']) > $records_total ) ? $records_total : intval($_GET['records']);
                             else:
                                 $records_count = ( $records_total < 8 ) ? $records_total : 8;
                             endif;
